@@ -1,0 +1,50 @@
+314CA Panaitiu Bogdan-Ionut
+
+    Programul contine 2 fisiere .c si 2 fisiere de tip .h: image_editor.c,
+util.c, util.h si struct.h.
+    Fisierul image_editor.c contine functia main in care se citeste comanda si
+se apeleaza functia corespunzatoare prezenta in fisierul util.c.
+    Fisierul util.c contine functiile de: LOAD, SAVE, SELECT, CROP, ROTATE, 
+APPLY,  EQUALIZE, HISTOGRAM, EXIT.
+    Fisierul util.h contine declaratiile functiilor din util.c.
+    Fisierul struct.h contine declaratiile structurilor de date folosite in
+intreg programul pentru a retine informatiile despre imagine.
+    Functia LOAD: citeste din fisierul de intrare numele imaginii,tipul acesteia,
+dimensiunile si valorile fiecarui pixel. In functie de tipul imaginii se aloca 
+memorie pentru structura de date corespunzatoare. In cazul imaginilor de tip
+RGB se aloca memorie pentru 3 matrici de tip unsigned char, iar in cazul
+imaginilor de tip grayscale se aloca memorie pentru o singura matrice de tip
+unsigned char. Functia poate citi atat din fisiere binare cat si din fisiere de
+tip ASCII.
+    Functia SAVE: scrie in fisierul de iesire numele imaginii, tipul acesteia,
+dimensiunile si valorile fiecarui pixel. In functie de tipul imaginii se scrie
+in fisierul de iesire matricea corespunzatoare. Functia poate scrie atat in
+fisiere binare cat si in fisiere de tip ASCII indifierent de tipul fisierului
+din care s-a citit imaginea.
+    Functia SELECT: selecteaza o zona din imaginea curenta si o salveaza pentru
+a fi folosita in alte functii. In momentul in care se introduce o imagine noua
+selectia va cuprinde intreaga imagine pana la primirea de noi valori.
+    Functia CROP: realizeaza decuparea imaginii curente in functie de selectia
+efectuata. Se aloca memorie pentru o noua imagine si se copiaza in aceasta
+imaginile din zona selectata. Se elibereaza memoria alocata pentru imaginea
+curenta si se copiaza noua imagine in locul celei vechi.
+    Functia ROTATE: realizeaza rotirea imaginii curente in functie de un unghi
+citit de la tastatura. Se aloca memorie pentru o noua imagine si se copiaza in
+aceasta imaginea rotita. Rotirea are loc k ori in unghi de 90 de grade, unde k
+este unghiul citit de la tastatura impartit la 90. In urma rotirii se elibereaza
+memoria alocata pentru imaginea curenta si se copiaza noua imagine in locul
+celei vechi.
+    Functia APPLY: aplica un filtru asupra imaginii curente in functie de
+selectia efectuata. Utilizand matricea kernel se efectueaza operatii care
+rezulta noi pixeli salvati intr-o noua imagine. Filtrul este specificat cand
+se introduce comanda. In final imaginea noua este copiata in cea initiala si
+memoria este eliberata. Filtrele disponibile sunt sharpen, edge, blur si
+gaussian_blur.
+    Functia HISTOGRAM: calculeaza si afiseaza histograma imaginii curente in
+functie de numarul maxim de stelute citit de la tastatura si numarul de bin-uri.
+    Funcita EQUALIZE: realizeaza egalizarea imaginii curente folosind formula
+data in enuntul temei. Aceasta operatie are loc pe intreaga imagine indiferent
+de selectie.
+    Functia EXIT: elibereaza memoria alocata pentru imaginea curenta si se iese
+din program.
+
